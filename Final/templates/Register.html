@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Language Translation Detection</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='CSS/register.css') }}" />
+
+
+  </head>
+  <body>
+    <div class="app">
+        <!-- Welcome Screen -->
+        <div class="screen" id="welcome-screen">
+          <h1>LANGUAGE TRANSLATION<br>DETECTION</h1>
+          <div class="form">
+            <div class="input-group">
+              <label>Name:</label>
+              <input type="text" placeholder="enter your name" id="name-input">
+            </div>
+            <div class="input-group">
+              <label>DOB:</label>
+              <input type="date" placeholder="dob" id="dob-input">
+            </div>
+            <div class="input-group">
+              <label>Default Language:</label>
+              <select id="language-select">
+                <option value="English">English</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+              </select>
+            </div>
+            <button class="continue-button">continue</button>
+          </div>
+        </div>
+  
+        <!-- Device Screen -->
+        <div class="screen hidden" id="device-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+            <h2>DEVICE</h2>
+          </div>
+          <div class="devices-list">
+            <div class="device-card">
+              <img src="https://in.cmf.tech/cdn/shop/files/darkgrey_10172190-c228-4d81-af3e-b595d9aae9ff_1920x.png?v=1695698595" alt="CMF Buds" class="device-image">
+              <span class="device-name">CMF BUDS</span>
+            </div>
+            <div class="device-card">
+              <img src="https://in.cmf.tech/cdn/shop/files/darkgrey_10172190-c228-4d81-af3e-b595d9aae9ff_1920x.png?v=1695698595" alt="CMF Buds" class="device-image">
+              <span class="device-name">CMF BUDS</span>
+            </div>
+            <div class="device-card">
+              <img src="https://in.cmf.tech/cdn/shop/files/darkgrey_10172190-c228-4d81-af3e-b595d9aae9ff_1920x.png?v=1695698595" alt="CMF Buds" class="device-image">
+              <span class="device-name">CMF BUDS</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Buds Screen -->
+        <div class="screen hidden" id="buds-screen">
+          <div class="header">
+            <div class="menu-icon">☰</div>
+            <h2>BUDS</h2>
+            <div class="settings-icon">⚙️</div>
+          </div>
+          <div class="buds-container">
+            <img src="https://in.cmf.tech/cdn/shop/files/darkgrey_10172190-c228-4d81-af3e-b595d9aae9ff_1920x.png?v=1695698595" alt="Buds" class="buds-image">
+          </div>
+          <button class="start-button">start</button>
+        </div>
+  
+        <!-- Translation Screen -->
+        <div class="screen hidden" id="translation-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+          </div>
+          <div class="mic-container">
+            <div class="mic-icon">🎤</div>
+            <div class="wave-animation"></div>
+          </div>
+          <div class="translation-container">
+            <div class="text-box">
+              <div class="text-box-header">
+                <span>DETECT LANGUAGE</span>
+                <span class="expand-icon">⤢</span>
+              </div>
+              <div class="text-content" id="detected-text">
+                <div class="loading-spinner"></div>
+              </div>
+            </div>
+            <div class="text-box">
+              <div class="text-box-header">
+                <span>TRANSLATION</span>
+                <span class="expand-icon">⤢</span>
+              </div>
+              <div class="text-content" id="translated-text">
+                <div class="loading-spinner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Settings Screen -->
+        <div class="screen hidden" id="settings-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+            <h2>SETTINGS</h2>
+          </div>
+          <div class="settings-list">
+            <div class="settings-item">
+              <span>Device Name</span>
+              <span>CMF Buds</span>
+            </div>
+            <div class="settings-item">
+              <span>Firmware Version</span>
+              <span>1.0.0</span>
+            </div>
+            <div class="settings-item">
+              <span>Battery Level</span>
+              <span>85%</span>
+            </div>
+            <div class="settings-item">
+              <span>Connection Status</span>
+              <span>Connected</span>
+            </div>
+            <div class="settings-item">
+              <span>Language</span>
+              <span>English</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Menu Screen -->
+        <div class="screen hidden" id="menu-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+            <h2>MENU</h2>
+          </div>
+          <div class="menu-list">
+            <div class="menu-item">
+              <span>Profile</span>
+              <span>➔</span>
+            </div>
+            <div class="menu-item">
+              <span>History</span>
+              <span>➔</span>
+            </div>
+            <div class="menu-item">
+              <span>Help</span>
+              <span>➔</span>
+            </div>
+            <div class="menu-item">
+              <span>About</span>
+              <span>➔</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Profile Screen -->
+        <div class="screen hidden" id="profile-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+            <h2>PROFILE</h2>
+          </div>
+          <div class="profile-content">
+            <div class="profile-image">
+              <img src="https://via.placeholder.com/100" alt="Profile Picture">
+              <button class="edit-button">Edit</button>
+            </div>
+            <div class="profile-details">
+              <div class="detail-item">
+                <span>Name:</span>
+                <span id="profile-name">John Doe</span>
+              </div>
+              <div class="detail-item">
+                <span>Email:</span>
+                <span id="profile-email">john.doe@example.com</span>
+              </div>
+              <div class="detail-item">
+                <span>DOB:</span>
+                <span id="profile-dob">1990-01-01</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- History Screen -->
+        <div class="screen hidden" id="history-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+            <h2>HISTORY</h2>
+          </div>
+          <div class="history-list">
+            <div class="history-item">
+              <span>Spanish → English</span>
+              <span>Hola → Hello</span>
+            </div>
+            <div class="history-item">
+              <span>French → English</span>
+              <span>Bonjour → Hello</span>
+            </div>
+            <div class="history-item">
+              <span>German → English</span>
+              <span>Hallo → Hello</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Help Screen -->
+        <div class="screen hidden" id="help-screen">
+          <div class="header">
+            <div class="back-icon">←</div>
+            <h2>HELP</h2>
+          </div>
+          <div class="help-content">
+            <div class="faq-item">
+              <h3>How do I use this app?</h3>
+              <p>Simply select your device, start the translation, and speak into the microphone.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Can I change the language?</h3>
+              <p>Yes, go to Settings and select your preferred language.</p>
+            </div>
+            <div class="faq-item">
+              <h3>How do I contact support?</h3>
+              <p>Email us at support@cmftech.com.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/register.js') }}"></script>
+  </body>
+</html>
